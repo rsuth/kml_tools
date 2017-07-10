@@ -3,10 +3,10 @@ from pykml.factory import KML_ElementMaker as KML
 from pykml.factory import GX_ElementMaker as GX
 
 def rotate(name="rotate",repeat=1,duration="1.5",fov="60",long="-117.1010708578619",
-           lat="32.63353533671049",alt="0",tilt="65",rnge="1500"):
+           lat="32.63353533671049",alt="0",tilt="65",distance="1500"):
     
     playlist = GX.Playlist()
-    for i in range(0,(360*repeat),10):
+    for i in xrange(0,(360*repeat),10):
         flyto = GX.FlyTo(
                     GX.duration(duration),
                     GX.flyToMode("smooth"),
@@ -17,7 +17,7 @@ def rotate(name="rotate",repeat=1,duration="1.5",fov="60",long="-117.10107085786
                         KML.altitude(alt),
                         KML.heading(str(i%360)),
                         KML.tilt(tilt),
-                        KML.range(rnge),
+                        KML.range(distance),
                         GX.altitudeMode("relativeToSeaFloor")
                         )
                     )
